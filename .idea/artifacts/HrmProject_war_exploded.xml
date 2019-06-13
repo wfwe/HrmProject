@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="HrmProject:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/HrmProject_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HrmProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/WebContent/WEB-INF/lib/mysql-connector-java-5.1.37-bin.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/el-api.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/jasper.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/jsp-api.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/catalina.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/ecj-4.4.2.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/jasper-el.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-api.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/catalina-ha.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/servlet-api.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-dbcp.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-jdbc.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-util.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/catalina-ant.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-coyote.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/websocket-api.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-i18n-es.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-i18n-fr.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat-i18n-ja.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/annotations-api.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/catalina-tribes.jar" />
+          <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat7-websocket.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="HrmProject/web/Web" />
+    </root>
+  </artifact>
+</component>
