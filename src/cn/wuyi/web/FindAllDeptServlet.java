@@ -29,6 +29,7 @@ public class FindAllDeptServlet extends HttpServlet {
             int currentPage= Integer.parseInt(request.getParameter("page"));
             int pageSize= Integer.parseInt(request.getParameter("rows"));
             rtn = deptService.selectAllDept(currentPage,pageSize);
+            System.out.println(rtn);
             response.getWriter().print(rtn);
         }
 

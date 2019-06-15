@@ -18,7 +18,7 @@
 <body>
 	<div title="查询用户" style="padding: 20px">
 		<table class="easyui-datagrid" title="员工信息表"
-			style="width: 100%; height: 500px"
+			style="width: 100%; height: 780px"
 			id="userTb" >
 			<thead>
 				<tr>

@@ -6,6 +6,7 @@ import cn.wuyi.domain.User;
 import cn.wuyi.util.C3P0Utils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -32,11 +33,42 @@ public class JobDaoImpl implements JobDao {
         List<Job> jobList =null;
         try {
             QueryRunner queryRunner = new QueryRunner(C3P0Utils.getDataSource());
-            String sql = "select * from job_inf";
+            String sql = "select * from job_inf ";
             jobList = queryRunner.query(sql,new BeanListHandler<Job>(Job.class));
+            return jobList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return jobList;
+
+    }
+
+    @Override
+    public int getTotalRecord() {
+        try {
+            QueryRunner queryRunner = new QueryRunner(C3P0Utils.getDataSource());
+            String sql = "select count(*) from job_inf";
+            Object[] parms = {};
+            Long numLong = (Long) queryRunner.query(sql,new ScalarHandler(),parms);
+            return numLong.intValue();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public List<Job> selectJob(int startIndex,int pageSize) {
+
+        List<Job> jobList =null;
+        try {
+            QueryRunner queryRunner = new QueryRunner(C3P0Utils.getDataSource());
+            String sql = "select * from job_inf limit ?,?";
+            Object[] parms = {startIndex,pageSize};
+            jobList = queryRunner.query(sql,new BeanListHandler<Job>(Job.class),parms);
+            return jobList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
+

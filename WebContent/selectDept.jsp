@@ -19,7 +19,7 @@
 </head>
 <body>
 <div title="查询部门" style="padding: 20px">
-    <table class="easyui-datagrid" title="部门表" style="width: 100%; height: 500px" id="deptTb">
+    <table class="easyui-datagrid" title="部门表" style="width: 100%; height: 780px" id="deptTb">
         <thead>
         <tr>
             <th data-options="field:'id',align:'center',resizable:false"

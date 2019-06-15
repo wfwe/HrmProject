@@ -18,6 +18,7 @@ public class FindAllJobServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
 
+
         JobService jobService = new JobServiceImpl();
         String jtn;
         if (request.getParameter("page")==null&&request.getParameter("rows")==null)
@@ -25,10 +26,13 @@ public class FindAllJobServlet extends HttpServlet {
             jtn = jobService.selectJob();
             response.getWriter().print(jtn);
         }else{
-            List<Job> jobList = jobService.selectAllJob();
-
-            request.getSession().setAttribute("jobList",jobList);
-            request.getRequestDispatcher("/main.jsp").forward(request,response);
+            int pageNumber = 0;
+            pageNumber= Integer.parseInt(request.getParameter("page"));
+            int pageSize = 0;
+            pageSize= Integer.parseInt(request.getParameter("rows"));
+            String jobList = jobService.selectjssonJob(pageNumber,pageSize);
+            System.out.println(jobList);
+            response.getWriter().print(jobList);
         }
 
     }

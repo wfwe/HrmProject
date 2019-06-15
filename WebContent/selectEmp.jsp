@@ -22,7 +22,7 @@
 %>
 <div title="查询员工" style="padding: 20px">
     <table class="easyui-datagrid" title="员工信息表"
-           style="width: 100%; height: 500px"
+           style="width: 100%; height: 780px"
            data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
         <thead>
         <tr>

@@ -13,7 +13,7 @@
 <body>
 <div style="margin: 20px 0;"></div>
 <div class="easyui-panel" title="添加部门"
-     style="width: 945px; height: 500px;">
+     style="width: 950px; height: 600px;">
     <div style="padding: 40px 60px 20px 60px;">
         <form id="ff" class="easyui-form" method="post">
             <table cellpadding="10">
@@ -22,22 +22,22 @@
                     <td><input class="easyui-textbox" type="text" name="username"
                                data-options="required:true"></td>
                     <td>卡号:</td>
-                    <td><input class="easyui-textbox" type="text" name="card_id"
-                               data-options="required:true"></td>
+                    <td><input class="easyui-numberbox" type="text" name="card_id"
+                               data-options="required:true,validType:'length[6,6]'"></td>
                     <td>邮政编码:</td>
-                    <td><input class="easyui-textbox" type="text" name="post_code"
-                               data-options="required:true"></td>
+                    <td><input class="easyui-numberbox" type="text" name="post_code"
+                               data-options="required:false,validType:'length[6,6]'"></td>
                 </tr>
                 <tr>
                     <td>电话:</td>
-                    <td><input class="easyui-textbox" type="text" name="tel"
-                               data-options="required:true"></td>
+                    <td><input class="easyui-numberbox" type="text" name="tel"
+                               data-options="required:true,validType:'phoneRex'"></td>
                     <td>QQ:</td>
-                    <td><input class="easyui-textbox" type="text" name="qq_num"
-                               data-options="required:true"></td>
+                    <td><input class="easyui-numberbox" type="text" name="qq_num"
+                               data-options="required:false"></td>
                     <td>Email:</td>
                     <td><input class="easyui-textbox" type="text" name="email"
-                               data-options="required:true"></td>
+                               data-options="required:true,validType:'email'"></td>
                 </tr>
                 <tr>
                     <td>地址:</td>
@@ -53,13 +53,13 @@
                 <tr>
                     <td>爱好:</td>
                     <td><input class="easyui-textbox" type="text" name="hobby"
-                               data-options="required:true"></td>
+                               data-options="required:false"></td>
                     <td>专业:</td>
                     <td><input class="easyui-textbox" type="text" name="speciality"
                                data-options="required:true"></td>
                     <td>备注:</td>
                     <td><input class="easyui-textbox" type="text" name="remark"
-                               data-options="required:true"></td>
+                               data-options="required:false"></td>
                 </tr>
 
                 <tr>
@@ -163,5 +163,31 @@
             message : '两次密码不一致'
         }
     });
+    //电话验证
+    $.extend($.fn.validatebox.defaults.rules, {
+        phoneRex: {
+            validator: function(value){
+                var rex=/^1[3-8]+\d{9}$/;
+                //var rex=/^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
+                //区号：前面一个0，后面跟2-3位数字 ： 0\d{2,3}
+                //电话号码：7-8位数字： \d{7,8
+                //分机号：一般都是3位数字： \d{3,}
+                //这样连接起来就是验证电话的正则表达式了：/^((0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/
+                var rex2=/^((0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;
+                if(rex.test(value)||rex2.test(value))
+                {
+                    // alert('t'+value);
+                    return true;
+                }else
+                {
+                    //alert('false '+value);
+                    return false;
+                }
+
+            },
+            message: '请输入正确电话或手机格式'
+        }
+    });
+
 </script>
 </html>

@@ -7,7 +7,7 @@ import java.util.List;
 public interface JobService {
     int addJob(Job job);
 
-    List<Job> selectAllJob();
-
     String selectJob();
+    List<Job> selectAllJob();
+    String selectjssonJob(int pageNumber, int pageSize);
 }

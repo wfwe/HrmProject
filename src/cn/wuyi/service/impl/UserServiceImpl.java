@@ -54,7 +54,7 @@ private UserDao userdao = new UserDaoImpl();
 		String rtn="{'total':0,'rows':[]}";
 		if (data.size() > 0)
 		{
-			rtn = " {\"total\":"+totalRecord+",\"rows\":"+JSONArray.fromObject(data).toString()+"}";
+			rtn = "{\"total\":"+totalRecord+",\"rows\":"+JSONArray.fromObject(data).toString()+"}";
 		}
 		return rtn;
 	}

@@ -30,7 +30,7 @@
                     <td>备注:</td>
                     <td><input class="easyui-textbox" type="text"
                                name="remark"
-                               data-options="required:true"></td>
+                               data-options="required:false"></td>
                 </tr>
             </table>
         </form>

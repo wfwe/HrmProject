@@ -28,6 +28,7 @@ public class FindAllServlet extends HttpServlet {
         try {
             pageSize = Integer.parseInt(request.getParameter("rows"));
         }catch (RuntimeException e){}
+
         //查询所有用户
         UserService userService = new UserServiceImpl();
         String rtn = userService.selectAllUser(currentPage,pageSize);

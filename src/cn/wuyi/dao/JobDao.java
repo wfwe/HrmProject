@@ -8,4 +8,8 @@ public interface JobDao {
     int addJob(Job job);
 
     List<Job> selectAllJob();
+
+    int getTotalRecord();
+
+    List<Job> selectJob(int startIndex,int pageSize);
 }
