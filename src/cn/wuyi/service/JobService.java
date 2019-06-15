@@ -8,4 +8,6 @@ public interface JobService {
     int addJob(Job job);
 
     List<Job> selectAllJob();
+
+    String selectJob();
 }

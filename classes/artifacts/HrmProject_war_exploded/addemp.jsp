@@ -22,18 +22,18 @@
                     <td><input class="easyui-textbox" type="text" name="username"
                                data-options="required:true"></td>
                     <td>卡号:</td>
-                    <td><input class="easyui-textbox" type="text" name="userid"
+                    <td><input class="easyui-textbox" type="text" name="card_id"
                                data-options="required:true"></td>
                     <td>邮政编码:</td>
-                    <td><input class="easyui-textbox" type="text" name="postcode"
+                    <td><input class="easyui-textbox" type="text" name="post_code"
                                data-options="required:true"></td>
                 </tr>
                 <tr>
                     <td>电话:</td>
-                    <td><input class="easyui-textbox" type="text" name="usertel"
+                    <td><input class="easyui-textbox" type="text" name="tel"
                                data-options="required:true"></td>
                     <td>QQ:</td>
-                    <td><input class="easyui-textbox" type="text" name="userqq"
+                    <td><input class="easyui-textbox" type="text" name="qq_num"
                                data-options="required:true"></td>
                     <td>Email:</td>
                     <td><input class="easyui-textbox" type="text" name="email"
@@ -48,7 +48,7 @@
                                data-options="required:true"></td>
                     <td>生日:</td>
                     <td><input class="easyui-datebox" type="text" name="birthday"
-                               data-options="required:true"></td>
+                               data-options="formatter:myformatter,parser:myparser" id="fn"></td>
                 </tr>
                 <tr>
                     <td>爱好:</td>
@@ -66,8 +66,8 @@
                     <td>性别:</td>
                     <td><select id="sex" class="easyui-combobox" name="sex"
                                 style="width: 120px;">
-                        <option value="男">男</option>
-                        <option value="女">女</option>
+                        <option value="1">男</option>
+                        <option value="0">女</option>
                     </select></td>
                     <td>政治面貌:</td>
                     <td><select id="party" class="easyui-combobox" name="party"
@@ -87,16 +87,11 @@
                 </tr>
                 <tr>
                     <td>部门:</td>
-                    <td>    <input id="deptName" class="easyui-combobox" name="dept" data-options="valueField:'id',textField:'name',url:'${pageContext.request.contextPath}/FindAllDeptServlet'">
+                    <td>    <input id="deptName" class="easyui-combobox" name="dept_name" data-options="valueField:'id',textField:'name',url:'${pageContext.request.contextPath}/FindAllDeptServlet'">
                     </td>
                     <td>职位:</td>
-                    <td><select id="job_name" class="easyui-combobox" name="job_name"
-                                style="width: 120px;">
-                        <option value="高中">高中</option>
-                        <option value="专科">专科</option>
-                        <option value="本科">本科</option>
-                        <option value="本科以上">本科以上</option>
-                    </select>
+                    <td>    <input id="jobName" class="easyui-combobox" name="job_name" data-options="valueField:'id',textField:'name',url:'${pageContext.request.contextPath}/FindAllJobServlet'">
+                    </td>
                 </tr>
             </table>
         </form>
@@ -111,4 +106,62 @@
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    //easyui使用的是ajax做表单提交
+    function submitForm() {
+
+        $('#ff').form('submit', {
+            url : "AddEmpServlet",
+            onSubmit : function() {
+                return $(this).form('enableValidation').form('validate');
+            },
+            //data:ajax从服务器端返回的数据
+            success : function(data) {
+                if (data == "1") {
+                    //以下是easyui的信息提示框：有三个参数：1.标题，2.提示信息，3.图片
+                    $.messager.alert('注册成功', '恭喜你,注册成功'+data, 'info');
+                } else {
+                    $.messager.alert('注册失败', '对不起,注册失败了'+data, 'error');
+                }
+            }
+
+        });
+    }
+    //置空的方法
+    function clearForm() {
+        $('#ff').form('clear');
+
+    }
+
+
+    function myformatter(date){
+        var y = date.getFullYear();
+        var m = date.getMonth()+1;
+        var d = date.getDate();
+        return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+    }
+    function myparser(s){
+        if (!s) return new Date();
+        var ss = (s.split('-'));
+        var y = parseInt(ss[0],10);
+        var m = parseInt(ss[1],10);
+        var d = parseInt(ss[2],10);
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+            return new Date(y,m-1,d);
+        } else {
+            return new Date();
+        }
+    }
+
+    //完成两个密码效验
+    $.extend($.fn.validatebox.defaults.rules, {
+        /*必须和某个字段相等*/
+        equalTo : {
+            validator : function(value, param) {
+                return $(param[0]).val() == value;
+            },
+            message : '两次密码不一致'
+        }
+    });
+</script>
 </html>

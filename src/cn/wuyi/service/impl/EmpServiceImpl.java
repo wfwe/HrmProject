@@ -8,9 +8,15 @@ import cn.wuyi.service.EmpService;
 import java.util.List;
 
 public class EmpServiceImpl implements EmpService {
+
     private EmpDao empDao = new EmpDaoImpl();
     @Override
     public List<Emp> selectAllEmp() {
         return empDao.selectAllEmp();
+    }
+
+    @Override
+    public int addEmp(Emp emp) {
+        return empDao.addEmp(emp);
     }
 }

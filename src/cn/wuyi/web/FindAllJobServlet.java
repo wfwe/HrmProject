@@ -19,10 +19,18 @@ public class FindAllJobServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
 
         JobService jobService = new JobServiceImpl();
-        List<Job> jobList = jobService.selectAllJob();
+        String jtn;
+        if (request.getParameter("page")==null&&request.getParameter("rows")==null)
+        {
+            jtn = jobService.selectJob();
+            response.getWriter().print(jtn);
+        }else{
+            List<Job> jobList = jobService.selectAllJob();
 
-        request.getSession().setAttribute("jobList",jobList);
-        request.getRequestDispatcher("/main.jsp").forward(request,response);
+            request.getSession().setAttribute("jobList",jobList);
+            request.getRequestDispatcher("/main.jsp").forward(request,response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

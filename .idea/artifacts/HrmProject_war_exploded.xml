@@ -29,6 +29,16 @@
           <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/annotations-api.jar" />
           <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/catalina-tribes.jar" />
           <element id="file-copy" path="D:/Program Files (x86)/apache-tomcat-7.0.88/lib/tomcat7-websocket.jar" />
+          <element id="library" level="project" name="json-lib-2.4-jdk15" />
+          <element id="library" level="project" name="c3p0-0.9.1.2" />
+          <element id="library" level="project" name="commons-beanutils-1.8.3" />
+          <element id="library" level="project" name="commons-collections-3.2.1" />
+          <element id="library" level="project" name="commons-dbutils-1.7 (2)" />
+          <element id="library" level="project" name="commons-lang-2.6" />
+          <element id="library" level="project" name="commons-logging-1.1.1" />
+          <element id="library" level="project" name="ezmorph-1.0.6" />
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="standard" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="HrmProject/web/Web" />

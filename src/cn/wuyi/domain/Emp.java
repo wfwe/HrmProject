@@ -17,7 +17,7 @@ public class Emp implements Serializable{
     private String email;
     private int sex;
     private String party; //政治面貌
-    private Date birthday;
+    private String birthday;
     private String race; //族
     private String education; //教育背景
     private String speciality;  //专业
@@ -132,11 +132,11 @@ public class Emp implements Serializable{
         this.party = party;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -184,15 +184,14 @@ public class Emp implements Serializable{
         return create_date;
     }
 
+
     public void setCreate_date(Date create_date) {
         this.create_date = create_date;
     }
 
-    public Emp(String dept_name, String job_name, int id, String name, String card_id, String address, String post_code, String tel, String phone, String qq_num, String email, int sex, String party, Date birthday, String race, String education, String speciality, String hobby, String remark, Date create_date) {
-        this.dept_name = dept_name;
+    public Emp(String job_name, int id, String name, String card_id, String address, String post_code, String tel, String phone, String qq_num, String email, int sex, String party, String birthday, String race, String education, String speciality, String hobby, String remark, Date create_date) {
         this.job_name = job_name;
         this.id = id;
-
         this.name = name;
         this.card_id = card_id;
         this.address = address;
