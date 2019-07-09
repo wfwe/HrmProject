@@ -97,16 +97,16 @@
 				<div title="公告管理" data-options="iconCls:'icon-ok'"
 					style="overflow: auto; padding: 10px; height: 200px">
 					<a href="#" class="easyui-linkbutton"
-						data-options="plain:true,iconCls:'icon-print'">公告查询</a> <a
+						data-options="plain:true,iconCls:'icon-print'" id="selectNo">公告查询</a> <a
 						href="#" class="easyui-linkbutton"
-						data-options="plain:true,iconCls:'icon-add'">添加公告</a>
+						data-options="plain:true,iconCls:'icon-add'" id="addN">添加公告</a>
 				</div>
 				<div title="下载中心" data-options="iconCls:'icon-print'"
 					style="overflow: auto; padding: 10px; height: 200px">
 					<a href="#" class="easyui-linkbutton"
-						data-options="plain:true,iconCls:'icon-zoom'">文档查询</a> <a href="#"
+						data-options="plain:true,iconCls:'icon-zoom'" id="upf">上传文档</a> <a href="#"
 						class="easyui-linkbutton"
-						data-options="plain:true,iconCls:'icon-add'">下载文档</a>
+						data-options="plain:true,iconCls:'icon-add'" id="dof">下载文档</a>
 				</div>
 
 
@@ -185,7 +185,18 @@
         $("#addJob").click(function () {
             addTab("#usertab","添加职位","icon-groupadd","addJob.jsp");
         });
-		
+        $("#upf").click(function () {
+			addTab("#usertab","文件上传","icon-groupadd","uploadFile.jsp");
+        });
+        $("#dof").click(function () {
+            addTab("#usertab","文件下载","icon-groupadd","downloadFile.jsp");
+        });
+        $("#addN").click(function () {
+            addTab("#usertab","添加公告","icon-groupadd","addnotice.jsp");
+        });
+        $("#selectNo").click(function () {
+            addTab("#usertab","公告查询","icon-groupadd","seleceNotice.jsp");
+        });
 
 	});
 

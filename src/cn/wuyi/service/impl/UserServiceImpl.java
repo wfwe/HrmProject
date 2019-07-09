@@ -7,6 +7,7 @@ import cn.wuyi.domain.PageBean;
 import cn.wuyi.domain.User;
 import cn.wuyi.service.UserService;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ private UserDao userdao = new UserDaoImpl();
 		String rtn="{'total':0,'rows':[]}";
 		if (data.size() > 0)
 		{
-			rtn = "{\"total\":"+totalRecord+",\"rows\":"+JSONArray.fromObject(data).toString()+"}";
+			rtn = "{\"total\":"+totalRecord+",\"rows\":"+ com.alibaba.fastjson.JSONObject.toJSON(data).toString() +"}";
 		}
 		return rtn;
 	}

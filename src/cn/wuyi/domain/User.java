@@ -1,5 +1,7 @@
 package cn.wuyi.domain;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,6 +25,7 @@ public class User implements Serializable {
 	private String loginname;//登录名
 	private String password;//密码
 	private int status;//状态
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	private Date createdate;//创建时间
 	private String username ;//用户名
 	public int getId() {
